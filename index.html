@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asmit Vishwakarma</title>
-    <meta name="description" content="Portfolio of Asmit Vishwakarma — UI/UX designer, graphic designer, developer and 3D artist based in Mumbai. 10+ projects shipped with WeFrame." />
+    <meta name="description" content="Portfolio of Asmit Vishwakarma , UI/UX designer, graphic designer, developer and 3D artist based in Mumbai. Currently a Design Intern at WeFrameTech." />
     <meta name="theme-color" content="#f4f4f2" />
     <link rel="icon" href="Media/Bitmap.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,10 +29,24 @@
     <!-- Scroll progress -->
     <div class="progress" aria-hidden="true"></div>
 
+    <!-- Liquid cursor -->
+    <svg class="goo-defs" aria-hidden="true" focusable="false" width="0" height="0">
+        <defs>
+            <filter id="goo" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b" />
+                <feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10" />
+            </filter>
+        </defs>
+    </svg>
+    <div class="cursor-layer" aria-hidden="true">
+        <div class="cursor-blob"></div>
+        <div class="cursor-dot"></div>
+    </div>
+
     <!-- ============ NAVBAR : liquid glass islands ============ -->
     <header class="navbar" id="navbar">
         <div class="nav-inner">
-            <a href="#home" class="island island-logo" aria-label="Asmit Vishwakarma — home">
+            <a href="#home" class="island island-logo" aria-label="Asmit Vishwakarma , home">
                 <img src="Media/PFP-web.jpg" alt="" class="nav-avatar">
                 <span class="nav-name">Asmit&nbsp;Vishwakarma</span>
             </a>
@@ -85,7 +99,7 @@
                         I craft as a&nbsp;<span class="rotor-wrap"><span id="rotor">UI/UX Designer</span></span>
                     </p>
                     <p class="hero-sub" data-reveal style="--d:.34s">
-                        Computer Science student blending design and code — shipping interfaces,
+                        Computer Science student blending design and code, shipping interfaces,
                         brands and 3D that feel <em class="hl">as good as they look</em>.
                     </p>
                     <div class="hero-actions" data-reveal style="--d:.42s">
@@ -103,7 +117,7 @@
                     <span class="corner-accent tr" aria-hidden="true"></span>
                     <span class="corner-accent bl" aria-hidden="true"></span>
                     <div class="chip chip-a" data-float><span class="pulse-dot"></span> Open to work</div>
-                    <div class="chip chip-b" data-float><i class="fas fa-asterisk chip-star"></i> 10+ projects shipped</div>
+                    <div class="chip chip-b" data-float><i class="fas fa-asterisk chip-star"></i> Design Intern @ WeFrameTech</div>
                 </figure>
             </div>
 
@@ -138,7 +152,7 @@
         <section id="roles" class="section roles">
             <div class="container">
                 <h2 class="section-title" data-reveal style="--d:.08s">Creative roles,<br>one mindset<span class="dot">.</span></h2>
-                <p class="section-sub" data-reveal style="--d:.16s">Four disciplines, one obsession — details. Tap a role to jump straight to its work.</p>
+                <p class="section-sub" data-reveal style="--d:.16s">Four disciplines, one obsession , details. Tap a role to jump straight to its work.</p>
 
                 <div class="roles-list">
                     <a href="#projects" class="role-row" data-filter="ui-ux" data-reveal style="--d:.05s">
@@ -172,32 +186,34 @@
         <!-- ============ EXPERIENCE ============ -->
         <section id="experience" class="section experience">
             <div class="container">
-                <h2 class="section-title" data-reveal style="--d:.08s">Experience that<br>actually shipped<span class="dot">.</span></h2>
+                <h2 class="section-title" data-reveal style="--d:.08s">My professional<br>experience<span class="dot">.</span></h2>
 
                 <div class="exp" data-reveal style="--d:.15s">
                     <div class="exp-info">
                         <div class="exp-company">
-                            <img src="Media/weframe-logo.png" alt="WeFrame logo" class="exp-logo-img">
+                            <img src="Media/WeFrameTech.png" alt="WeFrameTech logo" class="exp-logo-img">
                             <div class="exp-id">
-                                <h3>WeFrame</h3>
-                                <p>Product Designer &amp; Front-End Developer · Mumbai, India</p>
+                                <h3>WeFrameTech</h3>
+                                <p>UI/UX Design Intern · Mumbai, India</p>
                             </div>
                         </div>
                         <p class="exp-desc">
-                            At WeFrame I took real products from the first wireframe to live release —
-                            owning UI/UX, brand assets, front-end implementation and 3D content,
-                            working directly with developers and stakeholders.
+                            I am currently working as a UI/UX Design Intern at WeFrameTech, where I
+                            contribute to the design of websites and mobile applications. Working
+                            alongside experienced professionals, I am refining my design process and
+                            gaining practical exposure to how real products are planned, designed,
+                            and delivered , and I am learning a great deal in the process.
                         </p>
                         <ul class="exp-meta">
-                            <li>UI/UX Design</li>
-                            <li>Design Systems</li>
-                            <li>Front-end · Web &amp; Flutter</li>
-                            <li>3D Assets</li>
+                            <li>Website Design</li>
+                            <li>Mobile App Design</li>
+                            <li>UI/UX</li>
+                            <li>Prototyping</li>
                         </ul>
                     </div>
                     <div class="exp-figure">
-                        <p class="exp-count"><span class="stat-num" data-count="10">0</span><span class="exp-plus">+</span></p>
-                        <p class="exp-count-label">projects shipped,<br><strong>most live in production</strong></p>
+                        <p class="exp-duration">May 2026<br><span>,</span> Present</p>
+                        <p class="exp-count-label">An ongoing internship,<br><strong>learning a great deal in the process</strong></p>
                     </div>
                 </div>
             </div>
@@ -211,8 +227,8 @@
                 <div class="about-grid">
                     <div class="about-text" data-reveal style="--d:.14s">
                         <p>I'm a Computer Science student with a passion for crafting intuitive, visually engaging digital experiences.</p>
-                        <p>My primary focus is <strong>UI/UX design</strong> — combining creativity and precision to build interfaces that are both functional and beautiful. Alongside it, I bring versatile skills in <strong>graphic design</strong>, <strong>web development</strong> and <strong>3D artistry</strong>, so I can contribute across every stage of a product — from concept to execution.</p>
-                        <p>During my time at <strong>WeFrame</strong>, I shipped more than ten projects, most of which are live today — an experience that taught me how design decisions behave in the real world.</p>
+                        <p>My primary focus is <strong>UI/UX design</strong> , combining creativity and precision to build interfaces that are both functional and beautiful. Alongside it, I bring versatile skills in <strong>graphic design</strong>, <strong>web development</strong> and <strong>3D artistry</strong>, so I can contribute across every stage of a product , from concept to execution.</p>
+                        <p>I am currently working as a UI/UX Design Intern at <strong>WeFrameTech</strong>, where I design websites and mobile applications , an experience that is teaching me how design decisions behave in the real world.</p>
                         <p>I'm detail-oriented, responsible and always eager to learn new techniques, explore emerging technologies, and push the boundaries of design and development.</p>
 
                         <p class="about-loc"><i class="fas fa-location-dot"></i> Naigaon West, Mumbai, Maharashtra, India</p>
@@ -332,7 +348,7 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <h3>3D Modeling — Mumbai Local Train</h3>
+                            <h3>3D Modeling , Mumbai Local Train</h3>
                             <p>Using Blender I created a 3D model of the Mumbai Local Train</p>
                             <div class="project-tags"><span>#blender</span><span>#render</span><span>#3dmodel</span></div>
                         </div>
@@ -348,7 +364,7 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <h3>3D Modeling — Miniature House</h3>
+                            <h3>3D Modeling , Miniature House</h3>
                             <p>A miniature model of a simple house in Blender 3D</p>
                             <div class="project-tags"><span>#blender</span><span>#3dmodel</span><span>#render</span></div>
                         </div>
@@ -365,7 +381,7 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <h3>Logo Design — Bharat Socials</h3>
+                            <h3>Logo Design , Bharat Socials</h3>
                             <p>Logo design for an application</p>
                             <div class="project-tags"><span>#illustrator</span><span>#logodesign</span><span>#application</span></div>
                         </div>
@@ -414,7 +430,7 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <h3>Bharat Socials — App Design &amp; Development</h3>
+                            <h3>Bharat Socials , App Design &amp; Development</h3>
                             <p>Complete UI/UX design and development of a volunteer management app</p>
                             <div class="project-tags"><span>#flutter</span><span>#uiux</span><span>#appdevelopment</span></div>
                         </div>

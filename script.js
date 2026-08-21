@@ -13,6 +13,9 @@
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const root = document.documentElement;
 
+    /* shared per-frame motion values */
+    const motionState = { vel: 0 };
+
     document.addEventListener('DOMContentLoaded', init);
 
     function init() {
@@ -28,6 +31,8 @@
             initMainLoop();
             if (finePointer) {
                 initMagnetic();
+                initCursor();
+                initPortraitGaze();
             }
         }
         initYear();
@@ -91,6 +96,7 @@
             const target = Math.max(-4, Math.min(4, dy * 0.35));
             vel += (target - vel) * 0.08;
             if (Math.abs(vel) < 0.002) vel = 0;
+            motionState.vel = vel;
             root.style.setProperty('--sv', vel.toFixed(3) + 'deg');
 
             // progress bar
@@ -269,6 +275,111 @@
     function initYear() {
         const y = document.getElementById('year');
         if (y) y.textContent = new Date().getFullYear();
+    }
+
+    /* ---------------- Liquid cursor ---------------- */
+    function initCursor() {
+        const layer = document.querySelector('.cursor-layer');
+        const dot = document.querySelector('.cursor-dot');
+        const blob = document.querySelector('.cursor-blob');
+        if (!layer || !dot || !blob) return;
+
+        root.classList.add('has-cursor');
+
+        const INTERACTIVE = 'a, button, input, textarea, select, label, [role="button"]';
+
+        let mx = innerWidth / 2, my = innerHeight / 2;   // mouse
+        let dx = mx, dy = my;                            // dot (fast follow)
+        let bx = mx, by = my;                            // blob (laggy follow)
+        let dotScale = 2, blobScale = 2;                 // current
+        let tDotScale = 1, tBlobScale = 1;               // target
+        let pressed = false;
+        let hovering = false;
+
+        function retarget() {
+            tDotScale = hovering ? 0.4 : 2.0;
+            tBlobScale = hovering ? 2 : 1;
+            if (pressed) { tDotScale *= 3.0; tBlobScale *= 13.0; }
+        }
+
+        window.addEventListener('pointermove', e => {
+            mx = e.clientX;
+            my = e.clientY;
+            layer.style.opacity = '1';
+            const hit = e.target.closest(INTERACTIVE);
+            const wasHovering = hovering;
+            hovering = !!hit;
+            if (wasHovering !== hovering) retarget();
+        }, { passive: true });
+
+        window.addEventListener('pointerdown', () => {
+            pressed = true;
+            retarget();
+        });
+        window.addEventListener('pointerup', () => {
+            pressed = false;
+            retarget();
+        });
+
+        document.documentElement.addEventListener('mouseleave', () => {
+            layer.style.opacity = '0';
+        });
+        document.documentElement.addEventListener('mouseenter', () => {
+            layer.style.opacity = '1';
+        });
+
+        (function tick() {
+            // the dot chases quickly, the blob drifts behind —
+            // the goo filter melts them together like liquid
+            dx += (mx - dx) * 0.4;
+            dy += (my - dy) * 0.4;
+            bx += (mx - bx) * 0.16;
+            by += (my - by) * 0.16;
+            dotScale += (tDotScale - dotScale) * 0.2;
+            blobScale += (tBlobScale - blobScale) * 0.14;
+
+            dot.style.transform =
+                'translate3d(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px,0) scale(' + dotScale.toFixed(3) + ')';
+            blob.style.transform =
+                'translate3d(' + bx.toFixed(1) + 'px,' + by.toFixed(1) + 'px,0) scale(' + blobScale.toFixed(3) + ')';
+
+            requestAnimationFrame(tick);
+        })();
+    }
+
+    /* ---------------- Portrait faces the cursor in 3D ---------------- */
+    function initPortraitGaze() {
+        const el = document.querySelector('.portrait-tilt');
+        if (!el) return;
+
+        let mx = innerWidth / 2, my = innerHeight / 2;
+        let rx = 0, ry = 0;        // current rotation
+        let trx = 0, try_ = 0;     // target rotation
+
+        window.addEventListener('pointermove', e => {
+            mx = e.clientX;
+            my = e.clientY;
+        }, { passive: true });
+
+        (function tick() {
+            const r = el.getBoundingClientRect();
+            if (r.bottom > -100 && r.top < innerHeight + 100) {
+                const nx = Math.max(-1, Math.min(1, (mx - (r.left + r.width / 2)) / r.width));
+                const ny = Math.max(-1, Math.min(1, (my - (r.top + r.height / 2)) / r.height));
+                // face towards the cursor: positive rotateX looks up,
+                // negative rotateY turns right
+                trx = (-ny * 10);
+                try_ = (-nx * 12);
+            }
+
+            rx += (trx - rx) * 0.07;
+            ry += (try_ - ry) * 0.07;
+
+            el.style.transform =
+                'perspective(1100px) rotateX(' + (rx + motionState.vel).toFixed(3) + 'deg) rotateY(' + ry.toFixed(3) + 'deg)';
+
+            requestAnimationFrame(tick);
+        })();
     }
 
     /* expose for inline onclick handlers */
