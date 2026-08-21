@@ -1,399 +1,473 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Asmit Vishwakarma - Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Asmit Vishwakarma</title>
+    <meta name="description" content="Portfolio of Asmit Vishwakarma — UI/UX designer, graphic designer, developer and 3D artist based in Mumbai. 10+ projects shipped with WeFrame." />
+    <meta name="theme-color" content="#f4f4f2" />
     <link rel="icon" href="Media/Bitmap.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (!t) t = 'light';
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+        })();
+    </script>
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
+    <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important;filter:none !important}</style></noscript>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="Media/PFP.jpg" alt="Asmit" class="nav-profile-img">
-                <span>Asmit Vishwakarma</span>
-            </div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <!-- <a href="#roles" class="nav-link">Roles</a> -->
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="https://drive.google.com/file/d/1Z_zxIUs4vv32OM-PQig0u24Dq4L9o05q/view?usp=sharing" 
-                   target="_blank" class="nav-link resume-btn">Resume</a>
-            </div>
+    <!-- Scroll progress -->
+    <div class="progress" aria-hidden="true"></div>
+
+    <!-- ============ NAVBAR : liquid glass islands ============ -->
+    <header class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="island island-logo" aria-label="Asmit Vishwakarma — home">
+                <img src="Media/PFP-web.jpg" alt="" class="nav-avatar">
+                <span class="nav-name">Asmit&nbsp;Vishwakarma</span>
+            </a>
+            <nav class="nav-menu" aria-label="Primary">
+                <a href="#home" class="island nav-link is-active">Home</a>
+                <a href="#experience" class="island nav-link">Experience</a>
+                <a href="#about" class="island nav-link">About</a>
+                <a href="#projects" class="island nav-link">Work</a>
+                <a href="https://drive.google.com/file/d/1Z_zxIUs4vv32OM-PQig0u24Dq4L9o05q/view?usp=sharing"
+                   target="_blank" rel="noopener" class="island nav-link nav-resume">Resume
+                    <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+            </nav>
+            <button class="island theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
         </div>
+    </header>
+
+    <!-- ============ MOBILE DOCK ============ -->
+    <nav class="dock" aria-label="Mobile navigation">
+        <a href="#home" class="island dock-link nav-link is-active"><i class="fas fa-house"></i><span>Home</span></a>
+        <a href="#experience" class="island dock-link nav-link"><i class="fas fa-briefcase"></i><span>Exp.</span></a>
+        <a href="#about" class="island dock-link nav-link"><i class="fas fa-user"></i><span>About</span></a>
+        <a href="#projects" class="island dock-link nav-link"><i class="fas fa-layer-group"></i><span>Work</span></a>
+        <a href="https://drive.google.com/file/d/1Z_zxIUs4vv32OM-PQig0u24Dq4L9o05q/view?usp=sharing"
+           target="_blank" rel="noopener" class="island dock-link dock-resume"><i class="fas fa-file-lines"></i><span>Resume</span></a>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="gradient-text"><small>Hey there,</small></span>
-                    <span class="hero-name">I'm Asmit Vishwakarma</span>
-                </h1>
-                <p class="hero-subtitle">A passionate Computer Science student exploring the world of technology through multiple creative roles</p>
-                <div class="hero-buttons">
-                    <a href="#roles" class="btn btn-primary">Explore My Roles</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
+    <main>
+        <!-- ============ HERO ============ -->
+        <section id="home" class="hero">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <!-- <div class="hero-badge" data-reveal>
+                        <span class="pulse-dot"></span>
+                        Available for freelance &amp; full-time
+                    </div> -->
+                    <p class="hero-meta" data-reveal style="--d:.5s">
+                        <i class="fas fa-location-dot"></i> Mumbai, India · working worldwide
+                    </p>
+                    <h1 class="hero-title">
+                        <span class="line" data-reveal style="--d:.06s">Asmit</span>
+                        <span class="line outline" data-reveal style="--d:.16s">Vishwakarma
+                            <!-- <i class="fas fa-asterisk hero-star" aria-hidden="true"></i> -->
+                        </span>
+                    </h1>
+                    <p class="hero-role-line" data-reveal style="--d:.26s">
+                        I craft as a&nbsp;<span class="rotor-wrap"><span id="rotor">UI/UX Designer</span></span>
+                    </p>
+                    <p class="hero-sub" data-reveal style="--d:.34s">
+                        Computer Science student blending design and code — shipping interfaces,
+                        brands and 3D that feel <em class="hl">as good as they look</em>.
+                    </p>
+                    <div class="hero-actions" data-reveal style="--d:.42s">
+                        <a href="#projects" class="btn btn-primary">View Selected Work <i class="fas fa-arrow-down"></i></a>
+                        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+                    </div>
+                    
                 </div>
+
+                <figure class="hero-portrait" data-reveal style="--d:.2s">
+                    <span class="portrait-ring" aria-hidden="true"></span>
+                    <div class="portrait-tilt">
+                        <img src="Media/PFP-web.jpg" alt="Portrait of Asmit Vishwakarma" class="portrait-img" fetchpriority="high">
+                    </div>
+                    <span class="corner-accent tr" aria-hidden="true"></span>
+                    <span class="corner-accent bl" aria-hidden="true"></span>
+                    <div class="chip chip-a" data-float><span class="pulse-dot"></span> Open to work</div>
+                    <div class="chip chip-b" data-float><i class="fas fa-asterisk chip-star"></i> 10+ projects shipped</div>
+                </figure>
             </div>
-            <div class="hero-image">
-                <img src="Media/PFP.jpg" alt="Asmit Vishwakarma" class="profile-image">
-            </div>
-        </div>
-    </section>
 
-
-    <!-- Roles Section -->
-    <section id="roles" class="roles">
-        <div class="container">
-            <h2 class="section-title">My Professional Roles</h2>
-            <p class="section-subtitle">Click on any role to see related projects</p>
-            
-            <div class="roles-grid">
-                <div class="role-card" data-role="ui-ux">
-                    <div class="role-icon">
-                        <i class="fas fa-palette"></i>
+            <!-- Marquee -->
+            <div class="marquee" aria-hidden="true">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <span>UI/UX Design</span><i class="fas fa-asterisk"></i>
+                        <span>Graphic Design</span><i class="fas fa-asterisk"></i>
+                        <span>Web Development</span><i class="fas fa-asterisk"></i>
+                        <span>3D Artistry</span><i class="fas fa-asterisk"></i>
+                        <span>Prototyping</span><i class="fas fa-asterisk"></i>
+                        <span>Branding</span><i class="fas fa-asterisk"></i>
+                        <span>Visual Design</span><i class="fas fa-asterisk"></i>
+                        <span>Creative Code</span><i class="fas fa-asterisk"></i>
                     </div>
-                    <h3>UI/UX Designer</h3>
-                    <p>Creating intuitive and beautiful user experiences through thoughtful design</p>
-                    <div class="role-tags">
-                        <span>Figma</span>
-                        <span>User Research</span>
-                        <span>Prototyping</span>
-                    </div>
-                </div>
-
-                <div class="role-card" data-role="graphic">
-                    <div class="role-icon">
-                        <i class="fas fa-brush"></i>
-                    </div>
-                    <h3>Graphic Designer</h3>
-                    <p>Bringing ideas to life through creative visual design and branding</p>
-                    <div class="role-tags">
-                        <span>Photoshop</span>
-                        <span>Illustrator</span>
-                        <span>Branding</span>
-                    </div>
-                </div>
-
-                 <div class="role-card" data-role="development">
-    <div class="role-icon">
-        <i class="fas fa-code"></i>
-    </div>
-    <h3>Development</h3>
-    <p>Creating and maintaining functional, scalable, and responsive applications</p>
-    <div class="role-tags">
-        <span>Web Development</span>
-        <span>HTML / CSS</span>
-        <span>JavaScript</span>
-    </div>
-</div>
-
-                <div class="role-card" data-role="3d">
-                    <div class="role-icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <h3>3D Artist</h3>
-                    <p>Building immersive 3D models and visualizations</p>
-                    <div class="role-tags">
-                        <span>Blender</span>
-                        <span>Modeling</span>
-                        <span>Rendering</span>
+                    <div class="marquee-group">
+                        <span>UI/UX Design</span><i class="fas fa-asterisk"></i>
+                        <span>Graphic Design</span><i class="fas fa-asterisk"></i>
+                        <span>Web Development</span><i class="fas fa-asterisk"></i>
+                        <span>3D Artistry</span><i class="fas fa-asterisk"></i>
+                        <span>Prototyping</span><i class="fas fa-asterisk"></i>
+                        <span>Branding</span><i class="fas fa-asterisk"></i>
+                        <span>Visual Design</span><i class="fas fa-asterisk"></i>
+                        <span>Creative Code</span><i class="fas fa-asterisk"></i>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I’m a Computer Science student with a passion for crafting intuitive and visually engaging digital experiences.</p>
-                    <p>My primary focus is <strong>UI/UX design</strong>, where I combine creativity and precision to build interfaces that are both functional and beautiful.</p>
-                    <p>Alongside UI/UX, I bring versatile skills in <strong>Graphic design</strong>, <strong>web development</strong>, and <strong>3D artistry</strong>, enabling me to contribute across multiple stages of a project—from concept to execution.I am always looking for opportunities to learn and grow.</p>
-                    <p>I’m detail-oriented, responsible, and always eager to learn new techniques, explore emerging technologies, and push the boundaries of design and development.</p>
-                    <div class="about-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Mumbai, Maharashtra, India</span>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/asmit-vishwakarma-5b3629259/" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/Asmitbv21" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://dribbble.com/asmitbv" target="_blank" class="social-link">
-                            <i class="fab fa-dribbble"></i>
-                        </a>
-                    </div>
+        <!-- ============ ROLES ============ -->
+        <section id="roles" class="section roles">
+            <div class="container">
+                <h2 class="section-title" data-reveal style="--d:.08s">Creative roles,<br>one mindset<span class="dot">.</span></h2>
+                <p class="section-sub" data-reveal style="--d:.16s">Four disciplines, one obsession — details. Tap a role to jump straight to its work.</p>
+
+                <div class="roles-list">
+                    <a href="#projects" class="role-row" data-filter="ui-ux" data-reveal style="--d:.05s">
+                        <span class="role-num">01</span>
+                        <span class="role-name">UI/UX Designer</span>
+                        <span class="role-tags">Figma · Research · Prototyping</span>
+                        <span class="role-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="#projects" class="role-row" data-filter="graphic" data-reveal style="--d:.12s">
+                        <span class="role-num">02</span>
+                        <span class="role-name">Graphic Designer</span>
+                        <span class="role-tags">Photoshop · Illustrator · Branding</span>
+                        <span class="role-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="#projects" class="role-row" data-filter="developer" data-reveal style="--d:.19s">
+                        <span class="role-num">03</span>
+                        <span class="role-name">Developer</span>
+                        <span class="role-tags">Web · Flutter · JavaScript</span>
+                        <span class="role-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="#projects" class="role-row" data-filter="3d" data-reveal style="--d:.26s">
+                        <span class="role-num">04</span>
+                        <span class="role-name">3D Artist</span>
+                        <span class="role-tags">Blender · Modeling · Rendering</span>
+                        <span class="role-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
                 </div>
-                <div class="about-skills">
-                    <!-- <h3>Technical Skills</h3> -->
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <img src="Media/figms.png" alt="Figma" class="skill-icon">
-                            <span>Figma</span>
+            </div>
+        </section>
+
+        <!-- ============ EXPERIENCE ============ -->
+        <section id="experience" class="section experience">
+            <div class="container">
+                <h2 class="section-title" data-reveal style="--d:.08s">Experience that<br>actually shipped<span class="dot">.</span></h2>
+
+                <div class="exp" data-reveal style="--d:.15s">
+                    <div class="exp-info">
+                        <div class="exp-company">
+                            <img src="Media/weframe-logo.png" alt="WeFrame logo" class="exp-logo-img">
+                            <div class="exp-id">
+                                <h3>WeFrame</h3>
+                                <p>Product Designer &amp; Front-End Developer · Mumbai, India</p>
+                            </div>
                         </div>
-                        <div class="skill-item">
-                            <img src="Media/photoshop-40.svg" alt="Photoshop" class="skill-icon">
-                            <span>Photoshop</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="Media/illustrator.svg" alt="Illustrator" class="skill-icon">
-                            <span>Illustrator</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="Media/Canva.png" alt="Canva" class="skill-icon">
-                            <span>Canva</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="Media/blender.png" alt="Blender" class="skill-icon">
-                            <span>Blender</span>
-                        </div>
+                        <p class="exp-desc">
+                            At WeFrame I took real products from the first wireframe to live release —
+                            owning UI/UX, brand assets, front-end implementation and 3D content,
+                            working directly with developers and stakeholders.
+                        </p>
+                        <ul class="exp-meta">
+                            <li>UI/UX Design</li>
+                            <li>Design Systems</li>
+                            <li>Front-end · Web &amp; Flutter</li>
+                            <li>3D Assets</li>
+                        </ul>
+                    </div>
+                    <div class="exp-figure">
+                        <p class="exp-count"><span class="stat-num" data-count="10">0</span><span class="exp-plus">+</span></p>
+                        <p class="exp-count-label">projects shipped,<br><strong>most live in production</strong></p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <!-- ============ ABOUT ============ -->
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section-title" data-reveal style="--d:.08s">Design brain,<br>developer hands<span class="dot">.</span></h2>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
-                <button class="filter-btn" data-filter="graphic">Graphic Design</button>
-                <button class="filter-btn" data-filter="3d">3D Art</button>
-                <button class="filter-btn" data-filter="developer">Development</button>
-            </div>
+                <div class="about-grid">
+                    <div class="about-text" data-reveal style="--d:.14s">
+                        <p>I'm a Computer Science student with a passion for crafting intuitive, visually engaging digital experiences.</p>
+                        <p>My primary focus is <strong>UI/UX design</strong> — combining creativity and precision to build interfaces that are both functional and beautiful. Alongside it, I bring versatile skills in <strong>graphic design</strong>, <strong>web development</strong> and <strong>3D artistry</strong>, so I can contribute across every stage of a product — from concept to execution.</p>
+                        <p>During my time at <strong>WeFrame</strong>, I shipped more than ten projects, most of which are live today — an experience that taught me how design decisions behave in the real world.</p>
+                        <p>I'm detail-oriented, responsible and always eager to learn new techniques, explore emerging technologies, and push the boundaries of design and development.</p>
 
-            <div class="projects-grid">
-                <!-- UI/UX Projects -->
-                <div class="project-card" data-category="ui-ux">
-                    <div class="project-image">
-                        <img src="Media/Final_2.jpg" alt="UI Redesign">
-                        <div class="project-overlay">
-                            <button class="view-project-btn" onclick="openProjectModal('UI Redesign of Applications', 'Media/Final_2.jpg', 'Redesigning applications as per trending styles')">
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>UI Redesign of Applications</h3>
-                        <p>Redesigning applications as per trending styles</p>
-                        <div class="project-tags">
-                            <span>#figma</span>
-                            <span>#app</span>
-                            <span>#ui/ux</span>
-                        </div>
-                    </div>
-                </div>
+                        <p class="about-loc"><i class="fas fa-location-dot"></i> Naigaon West, Mumbai, Maharashtra, India</p>
 
-                <div class="project-card" data-category="ui-ux">
-                    <div class="project-image">
-                        <img src="Media/Frame 13.jpg" alt="Neumorphic Design">
-                        <div class="project-overlay">
-                            <button class="view-project-btn" onclick="openProjectModal('Neumorphic Style Design', 'Media/Frame 13.jpg', 'Use of the Neumorphic Style Design for visualizing light and shadow to create a 3D looking design')">
-                                View Project
-                            </button>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/asmit-vishwakarma-5b3629259/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Asmitbv21" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://dribbble.com/asmitbv" target="_blank" rel="noopener" class="social-link" aria-label="Dribbble">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <h3>Neumorphic Style Design</h3>
-                        <p>Style to show shadow and light glow effect</p>
-                        <div class="project-tags">
-                            <span>#figma</span>
-                            <span>#illustrator</span>
-                            <span>#design</span>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="project-card" data-category="ui-ux">
-                    <div class="project-image">
-                        <img src="Media/Project.jpg" alt="Attendance App">
-                        <div class="project-overlay">
-                            <button class="view-project-btn" onclick="openProjectModal('Redesign Of Attendance App', 'Media/Project.jpg', 'The project is about redesigning an attendance app using Figma with modern UI principles')">
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Redesign Of Attendance App</h3>
-                        <p>Redesigning the attendance app using Figma</p>
-                        <div class="project-tags">
-                            <span>#figma</span>
-                            <span>#ui/ux</span>
-                            <span>#trending</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3D Art Projects -->
-                <div class="project-card" data-category="3d">
-                    <div class="project-image">
-                        <img src="Media/Train 4.jpg" alt="3D Train Model">
-                        <div class="project-overlay">
-                            <button class="view-project-btn" onclick="openProjectModal('3D Modeling - Mumbai Local Train', 'Media/Train 4.jpg', 'By observing the structure and clicking many photos for reference, this 3D model of train was made using Blender')">
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>3D Modeling - Mumbai Local Train</h3>
-                        <p>Using Blender I created 3D model of Mumbai Local Train</p>
-                        <div class="project-tags">
-                            <span>#blender</span>
-                            <span>#render</span>
-                            <span>#3dmodel</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="3d">
-                    <div class="project-image">
-                        <img src="Media/Mini Home.png" alt="3D House Model">
-                        <div class="project-overlay">
-                            <button class="view-project-btn" onclick="openProjectModal('3D Modeling - Miniature House', 'Media/Mini Home.png', 'Using Blender 3D I created a miniature model of a simple house to show minimalist design principles')">
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>3D Modeling - Miniature House</h3>
-                        <p>Using Blender 3D I created a miniature model of a simple house</p>
-                        <div class="project-tags">
-                            <span>#blender</span>
-                            <span>#3dmodel</span>
-                            <span>#render</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Graphic Design Projects -->
-                <div class="project-card" data-category="graphic">
-                    <div class="project-image">
-                        <img src="Media/logoAi.png" alt="Logo Design">
-                        <div class="project-overlay">
-                            <button class="view-project-btn" onclick="openProjectModal('Logo Design - Bharat Socials', 'Media/logoAi.png', 'Logo design for an application named Bharat Socials using Adobe Illustrator and Photoshop')">
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Logo Design - Bharat Socials</h3>
-                        <p>Logo design for an Application</p>
-                        <div class="project-tags">
-                            <span>#illustrator</span>
-                            <span>#logodesign</span>
-                            <span>#application</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="graphic">
-                    <div class="project-image">
-                        <img src="Media/ASM.png" alt="Logo Design">
-                        <div class="project-overlay">
-                            <button class="view-project-btn" onclick="openProjectModal('Vector Portrait Illustration', 'Media/ASM.png', 'Minimalistic vector portrait created using Adobe Illustrator, featuring bold line art and a vibrant yellow abstract background')">
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Vector Portrait Illustration</h3>
-                        <p>Minimalistic vector portrait</p>
-                        <div class="project-tags">
-                            <span>#illustrator</span>
-                            <span>#vectorart</span>
-                            <span>#graphicdesign</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="graphic">
-                    <div class="project-image">
-                        <img src="Media/Love.png" alt="Illustration Design">
-                        <div class="project-overlay">
-                            <button class="view-project-btn" onclick="openProjectModal('Sunset Pier Illustration', 'Media/Love.png', 'A vector-based sunset landscape illustration created using Adobe Illustrator, featuring silhouettes, reflections, and a warm gradient sky.')">
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Sunset Pier Illustration</h3>
-                        <p>Vector artwork of a serene sunset landscape</p>
-                        <div class="project-tags">
-                            <span>#illustration</span>
-                            <span>#vectorart</span>
-                            <span>#adobeillustrator</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="developer">
-                    <div class="project-image">
-                        <img src="Media/BHTSOC.jpeg" alt="Logo Design">
-                        <div class="project-overlay">
-                            <button class="view-project-btn" onclick="openProjectModal('Bharat Socials – App Design & Development', 'Media/BHTSOC.jpeg', 'A fully designed and developed mobile application for managing NSS, NGOs, and University events with volunteer tracking, event registration, and attendance monitoring.')">
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Bharat Socials - App Design & Development</h3>
-                        <p>Complete UI/UX design and development of a volunteer management app</p>
-                        <div class="project-tags">
-                            <span>#flutter</span>
-                            <span>#uiux</span>
-                            <span>#appdevelopment</span>
+                    <div class="about-skills" data-reveal style="--d:.22s">
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <img src="Media/figms.png" alt="Figma" class="skill-icon" loading="lazy">
+                                <span>Figma</span>
+                            </div>
+                            <div class="skill-item">
+                                <img src="Media/photoshop-40.svg" alt="Photoshop" class="skill-icon" loading="lazy">
+                                <span>Photoshop</span>
+                            </div>
+                            <div class="skill-item">
+                                <img src="Media/illustrator.svg" alt="Illustrator" class="skill-icon" loading="lazy">
+                                <span>Illustrator</span>
+                            </div>
+                            <div class="skill-item">
+                                <img src="Media/Canva.png" alt="Canva" class="skill-icon" loading="lazy">
+                                <span>Canva</span>
+                            </div>
+                            <div class="skill-item">
+                                <img src="Media/blender.png" alt="Blender" class="skill-icon" loading="lazy">
+                                <span>Blender</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- ============ PROJECTS ============ -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <h2 class="section-title" data-reveal style="--d:.08s">Work that speaks<span class="dot">.</span></h2>
+
+                <div class="projects-filter" data-reveal style="--d:.14s">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
+                    <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+                    <button class="filter-btn" data-filter="3d">3D Art</button>
+                    <button class="filter-btn" data-filter="developer">Development</button>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- UI/UX -->
+                    <article class="project-card" data-category="ui-ux" data-reveal>
+                        <div class="project-media">
+                            <div class="media-tilt">
+                                <img src="Media/Final_2-web.jpg" alt="UI Redesign of applications" loading="lazy">
+                            </div>
+                            <div class="project-overlay">
+                                <button class="view-btn" onclick="openProjectModal('UI Redesign of Applications', 'Media/Final_2-web.jpg', 'Redesigning applications as per trending styles')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>UI Redesign of Applications</h3>
+                            <p>Redesigning applications as per trending styles</p>
+                            <div class="project-tags"><span>#figma</span><span>#app</span><span>#ui/ux</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="ui-ux" data-reveal>
+                        <div class="project-media">
+                            <div class="media-tilt">
+                                <img src="Media/Frame 13-web.jpg" alt="Neumorphic style design" loading="lazy">
+                            </div>
+                            <div class="project-overlay">
+                                <button class="view-btn" onclick="openProjectModal('Neumorphic Style Design', 'Media/Frame 13-web.jpg', 'Use of the Neumorphic Style Design for visualizing light and shadow to create a 3D looking design')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Neumorphic Style Design</h3>
+                            <p>Style to show shadow and light glow effect</p>
+                            <div class="project-tags"><span>#figma</span><span>#illustrator</span><span>#design</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="ui-ux" data-reveal>
+                        <div class="project-media">
+                            <div class="media-tilt">
+                                <img src="Media/Project-web.jpg" alt="Attendance app redesign" loading="lazy">
+                            </div>
+                            <div class="project-overlay">
+                                <button class="view-btn" onclick="openProjectModal('Redesign Of Attendance App', 'Media/Project-web.jpg', 'The project is about redesigning an attendance app using Figma with modern UI principles')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Redesign Of Attendance App</h3>
+                            <p>Redesigning the attendance app using Figma</p>
+                            <div class="project-tags"><span>#figma</span><span>#ui/ux</span><span>#trending</span></div>
+                        </div>
+                    </article>
+
+                    <!-- 3D -->
+                    <article class="project-card" data-category="3d" data-reveal>
+                        <div class="project-media">
+                            <div class="media-tilt">
+                                <img src="Media/Train 4-web.jpg" alt="3D model of Mumbai local train" loading="lazy">
+                            </div>
+                            <div class="project-overlay">
+                                <button class="view-btn" onclick="openProjectModal('3D Modeling - Mumbai Local Train', 'Media/Train 4-web.jpg', 'By observing the structure and clicking many photos for reference, this 3D model of train was made using Blender')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>3D Modeling — Mumbai Local Train</h3>
+                            <p>Using Blender I created a 3D model of the Mumbai Local Train</p>
+                            <div class="project-tags"><span>#blender</span><span>#render</span><span>#3dmodel</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="3d" data-reveal>
+                        <div class="project-media">
+                            <div class="media-tilt">
+                                <img src="Media/Mini Home-web.png" alt="3D miniature house model" loading="lazy">
+                            </div>
+                            <div class="project-overlay">
+                                <button class="view-btn" onclick="openProjectModal('3D Modeling - Miniature House', 'Media/Mini Home-web.png', 'Using Blender 3D I created a miniature model of a simple house to show minimalist design principles')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>3D Modeling — Miniature House</h3>
+                            <p>A miniature model of a simple house in Blender 3D</p>
+                            <div class="project-tags"><span>#blender</span><span>#3dmodel</span><span>#render</span></div>
+                        </div>
+                    </article>
+
+                    <!-- Graphic -->
+                    <article class="project-card" data-category="graphic" data-reveal>
+                        <div class="project-media">
+                            <div class="media-tilt">
+                                <img src="Media/logoAi-web.png" alt="Bharat Socials logo design" loading="lazy">
+                            </div>
+                            <div class="project-overlay">
+                                <button class="view-btn" onclick="openProjectModal('Logo Design - Bharat Socials', 'Media/logoAi-web.png', 'Logo design for an application named Bharat Socials using Adobe Illustrator and Photoshop')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Logo Design — Bharat Socials</h3>
+                            <p>Logo design for an application</p>
+                            <div class="project-tags"><span>#illustrator</span><span>#logodesign</span><span>#application</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="graphic" data-reveal>
+                        <div class="project-media">
+                            <div class="media-tilt">
+                                <img src="Media/ASM-web.png" alt="Vector portrait illustration" loading="lazy">
+                            </div>
+                            <div class="project-overlay">
+                                <button class="view-btn" onclick="openProjectModal('Vector Portrait Illustration', 'Media/ASM-web.png', 'Minimalistic vector portrait created using Adobe Illustrator, featuring bold line art and a vibrant yellow abstract background')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Vector Portrait Illustration</h3>
+                            <p>Minimalistic vector portrait</p>
+                            <div class="project-tags"><span>#illustrator</span><span>#vectorart</span><span>#graphicdesign</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="graphic" data-reveal>
+                        <div class="project-media">
+                            <div class="media-tilt">
+                                <img src="Media/Love-web.png" alt="Sunset pier illustration" loading="lazy">
+                            </div>
+                            <div class="project-overlay">
+                                <button class="view-btn" onclick="openProjectModal('Sunset Pier Illustration', 'Media/Love-web.png', 'A vector-based sunset landscape illustration created using Adobe Illustrator, featuring silhouettes, reflections, and a warm gradient sky.')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Sunset Pier Illustration</h3>
+                            <p>Vector artwork of a serene sunset landscape</p>
+                            <div class="project-tags"><span>#illustration</span><span>#vectorart</span><span>#adobeillustrator</span></div>
+                        </div>
+                    </article>
+
+                    <!-- Development -->
+                    <article class="project-card" data-category="developer" data-reveal>
+                        <div class="project-media">
+                            <div class="media-tilt">
+                                <img src="Media/BHTSOC-web.jpeg" alt="Bharat Socials app design and development" loading="lazy">
+                            </div>
+                            <div class="project-overlay">
+                                <button class="view-btn" onclick="openProjectModal('Bharat Socials – App Design & Development', 'Media/BHTSOC-web.jpeg', 'A fully designed and developed mobile application for managing NSS, NGOs, and University events with volunteer tracking, event registration, and attendance monitoring.')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Bharat Socials — App Design &amp; Development</h3>
+                            <p>Complete UI/UX design and development of a volunteer management app</p>
+                            <div class="project-tags"><span>#flutter</span><span>#uiux</span><span>#appdevelopment</span></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Project Modal -->
-    <div id="projectModal" class="modal">
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
-            <span class="close" onclick="closeProjectModal()">&times;</span>
+            <button class="modal-close" onclick="closeProjectModal()" aria-label="Close"><i class="fas fa-xmark"></i></button>
             <h2 id="modal-title"></h2>
-            <img id="modal-image" src="" alt="Project Image">
+            <img id="modal-image" src="" alt="Project image">
             <p id="modal-description"></p>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- ============ FOOTER / CONTACT ============ -->
+    <footer id="contact" class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Asmit Vishwakarma</h3>
-                    <p><i class="fas fa-envelope"></i> asmitbv@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +91 8356057791</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Naigoan West, Mumbai, Maharashtra, India</p><br>
-                    <a href="https://drive.google.com/file/d/1Z_zxIUs4vv32OM-PQig0u24Dq4L9o05q/view?usp=sharing" 
-                       target="_blank" class="resume-link">Download Resume</a>
+            <div class="footer-grid">
+                <div class="footer-cta">
+                    <h2 data-reveal style="--d:.08s">Let's build something<br>worth shipping<span class="dot">.</span></h2>
+                    <a href="mailto:asmitbv@gmail.com" class="email-cta" data-reveal style="--d:.16s">
+                        asmitbv@gmail.com
+                        <span class="email-circle"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <div class="contact-rows" data-reveal style="--d:.24s">
+                        <a href="mailto:asmitbv@gmail.com" class="contact-row"><i class="fas fa-envelope"></i> asmitbv@gmail.com</a>
+                        <a href="tel:+918356057791" class="contact-row"><i class="fas fa-phone"></i> +91 8356057791</a>
+                        <p class="contact-row"><i class="fas fa-location-dot"></i> Naigaon West, Mumbai, Maharashtra, India</p>
+                    </div>
+
+                    <div class="social-links" data-reveal style="--d:.3s">
+                        <a href="https://www.linkedin.com/in/asmit-vishwakarma-5b3629259/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Asmitbv21" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://dribbble.com/asmitbv" target="_blank" rel="noopener" class="social-link" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                    </div>
                 </div>
-                <!-- Desktop-only video section -->
-                <div class="footer-video desktop-only">
-                    <h4>Thank You!</h4>
-                    <video src="Media/infinity3.mp4" autoplay loop muted height="250"></video>
-                </div>
+
+                <figure class="footer-video desktop-only" data-reveal style="--d:.2s">
+                    <video src="Media/infinity3.mp4" autoplay loop muted playsinline></video>
+                    <figcaption>Thank you for scrolling</figcaption>
+                </figure>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2025 Asmit Vishwakarma. All rights reserved.</p>
+                <p>© <span id="year">2025</span> Asmit Vishwakarma. All rights reserved.</p>
+                <a href="https://drive.google.com/file/d/1Z_zxIUs4vv32OM-PQig0u24Dq4L9o05q/view?usp=sharing"
+                   target="_blank" rel="noopener" class="resume-link">Download Resume <i class="fas fa-download"></i></a>
             </div>
         </div>
     </footer>
