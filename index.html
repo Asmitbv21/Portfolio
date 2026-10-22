@@ -47,7 +47,7 @@
     <header class="navbar" id="navbar">
         <div class="nav-inner">
             <a href="#home" class="island island-logo" aria-label="Asmit Vishwakarma , home">
-                <img src="Media/PFP-web.jpg" alt="" class="nav-avatar">
+                <img src="Media/PFP-web.jpg" alt="" class="nav-avatar" decoding="async">
                 <span class="nav-name">Asmit&nbsp;Vishwakarma</span>
             </a>
             <nav class="nav-menu" aria-label="Primary">
@@ -55,7 +55,7 @@
                 <a href="#experience" class="island nav-link">Experience</a>
                 <a href="#about" class="island nav-link">About</a>
                 <a href="#projects" class="island nav-link">Work</a>
-                <a href="https://drive.google.com/file/d/1Z_zxIUs4vv32OM-PQig0u24Dq4L9o05q/view?usp=sharing"
+                <a href="https://drive.google.com/file/d/1IWvd51mjmcJmk07wssJ0h92zq18LiNz2/view?usp=sharing"
                    target="_blank" rel="noopener" class="island nav-link nav-resume">Resume
                     <i class="fas fa-arrow-up-right-from-square"></i>
                 </a>
@@ -73,7 +73,7 @@
         <a href="#experience" class="island dock-link nav-link"><i class="fas fa-briefcase"></i></a>
         <a href="#about" class="island dock-link nav-link"><i class="fas fa-user"></i></a>
         <a href="#projects" class="island dock-link nav-link"><i class="fas fa-layer-group"></i></a>
-        <a href="https://drive.google.com/file/d/1Z_zxIUs4vv32OM-PQig0u24Dq4L9o05q/view?usp=sharing"
+        <a href="https://drive.google.com/file/d/1IWvd51mjmcJmk07wssJ0h92zq18LiNz2/view?usp=sharing"
            target="_blank" rel="noopener" class="island dock-link dock-resume"><i class="fas fa-file-lines"></i></a>
     </nav>
 
@@ -96,7 +96,8 @@
                         </span>
                     </h1>
                     <p class="hero-role-line" data-reveal style="--d:.26s">
-                        I craft as a&nbsp;<span class="rotor-wrap"><span id="rotor">UI/UX Designer</span></span>
+                        <span class="role-rotor">I craft as a&nbsp;<span class="rotor-wrap"><span id="rotor">UI/UX Designer</span></span></span>
+                        <span class="role-static">UI/UX Designer · Developer · 3D Artist</span>
                     </p>
                     <p class="hero-sub" data-reveal style="--d:.34s">
                         Computer Science student blending design and code, shipping interfaces,
@@ -106,13 +107,15 @@
                         <a href="#projects" class="btn btn-primary">View Selected Work <i class="fas fa-arrow-down"></i></a>
                         <a href="#contact" class="btn btn-ghost">Get in Touch</a>
                     </div>
-                    
+                    <p class="hero-status" data-reveal style="--d:.5s">
+                        <span class="pulse-dot"></span> Open to work · Design Intern @ WeFrameTech
+                    </p>
                 </div>
 
                 <figure class="hero-portrait" data-reveal style="--d:.2s">
                     <span class="portrait-ring" aria-hidden="true"></span>
                     <div class="portrait-tilt">
-                        <img src="Media/PFP-web.jpg" alt="Portrait of Asmit Vishwakarma" class="portrait-img" fetchpriority="high">
+                        <img src="Media/PFP-web.jpg" alt="Portrait of Asmit Vishwakarma" class="portrait-img" fetchpriority="high" decoding="async">
                     </div>
                     <span class="corner-accent tr" aria-hidden="true"></span>
                     <span class="corner-accent bl" aria-hidden="true"></span>
@@ -191,11 +194,12 @@
                 <div class="exp" data-reveal style="--d:.15s">
                     <div class="exp-info">
                         <div class="exp-company">
-                            <img src="Media/WeFrameTech.png" alt="WeFrameTech logo" class="exp-logo-img">
+                            <img src="Media/WeFrameTech.png" alt="WeFrameTech logo" class="exp-logo-img" decoding="async">
                             <div class="exp-id">
                                 <h3>WeFrameTech</h3>
                                 <p>UI/UX Design Intern · Mumbai, India</p>
                             </div>
+                            <span class="exp-live"><span class="pulse-dot"></span> Ongoing</span>
                         </div>
                         <p class="exp-desc">
                             I am currently working as a UI/UX Design Intern at WeFrameTech, where I
@@ -211,9 +215,104 @@
                             <li>Prototyping</li>
                         </ul>
                     </div>
-                    <div class="exp-figure">
-                        <p class="exp-duration">May 2026<br><span>,</span> Present</p>
-                        <p class="exp-count-label">An ongoing internship,<br><strong>learning a great deal in the process</strong></p>
+                    <aside class="exp-figure">
+                        <p class="exp-duration"><span class="exp-since">Since</span> May 2026 <span class="exp-sep">—</span> Present</p>
+                        <p class="exp-count">04<span class="exp-plus">+</span></p>
+                        <p class="exp-count-label">Projects designed at WeFrameTech,<br><strong>learning a great deal in the process</strong></p>
+                    </aside>
+                </div>
+
+                <!-- ============ WEFRAMETECH — client project placeholders ============
+                     Swap the placeholder names / thumbnails below for the real client
+                     screens whenever you are cleared to publish them. -->
+                <div class="wft">
+                    <div class="wft-head" data-reveal style="--d:.08s">
+                        <div class="wft-head-txt">
+                            <span class="wft-eyebrow"><i class="fas fa-layer-group"></i> Client work</span>
+                            <h3 class="wft-title">Projects designed at WeFrameTech</h3>
+                        </div>
+                        <p class="wft-note">
+                            These client projects are covered by an NDA, so the thumbnails are
+                            placeholders. Full case studies are available on request.
+                        </p>
+                    </div>
+
+                    <div class="wft-grid">
+                        <article class="wft-card" data-reveal style="--d:.12s">
+                            <div class="wft-thumb">
+                                <img src="Media/wft-01.svg" alt="Placeholder preview of a client web platform" loading="lazy" decoding="async">
+                                <span class="wft-badge"><i class="fas fa-lock"></i> NDA</span>
+                                <span class="wft-scrim" aria-hidden="true"></span>
+                                <div class="wft-hover">
+                                    <p class="wft-kind">Website Design · 2026</p>
+                                    <h4 class="wft-name">E-commerce Storefront</h4>
+                                </div>
+                            </div>
+                            <div class="wft-foot">
+                                <span class="wft-index">01</span>
+                                <button type="button" class="wft-link"
+                                        onclick="openProjectModal('E-commerce Storefront', 'Media/wft-01.svg', 'A client e-commerce storefront designed at WeFrameTech. Covered by an NDA, so the preview is a placeholder — the full case study is available on request.')">
+                                    Details <i class="fas fa-arrow-up-right-from-square"></i>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="wft-card" data-reveal style="--d:.18s">
+                            <div class="wft-thumb">
+                                <img src="Media/wft-02.svg" alt="Placeholder preview of a client mobile app" loading="lazy" decoding="async">
+                                <span class="wft-badge"><i class="fas fa-lock"></i> NDA</span>
+                                <span class="wft-scrim" aria-hidden="true"></span>
+                                <div class="wft-hover">
+                                    <p class="wft-kind">Mobile App · 2026</p>
+                                    <h4 class="wft-name">Mobile App Redesign</h4>
+                                </div>
+                            </div>
+                            <div class="wft-foot">
+                                <span class="wft-index">02</span>
+                                <button type="button" class="wft-link"
+                                        onclick="openProjectModal('Mobile App Redesign', 'Media/wft-02.svg', 'A client mobile application designed at WeFrameTech. Covered by an NDA, so the preview is a placeholder — the full case study is available on request.')">
+                                    Details <i class="fas fa-arrow-up-right-from-square"></i>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="wft-card" data-reveal style="--d:.24s">
+                            <div class="wft-thumb">
+                                <img src="Media/wft-03.svg" alt="Placeholder preview of a client admin dashboard" loading="lazy" decoding="async">
+                                <span class="wft-badge"><i class="fas fa-lock"></i> NDA</span>
+                                <span class="wft-scrim" aria-hidden="true"></span>
+                                <div class="wft-hover">
+                                    <p class="wft-kind">Web App · 2026</p>
+                                    <h4 class="wft-name">Admin Dashboard</h4>
+                                </div>
+                            </div>
+                            <div class="wft-foot">
+                                <span class="wft-index">03</span>
+                                <button type="button" class="wft-link"
+                                        onclick="openProjectModal('Admin Dashboard', 'Media/wft-03.svg', 'A client admin dashboard designed at WeFrameTech. Covered by an NDA, so the preview is a placeholder — the full case study is available on request.')">
+                                    Details <i class="fas fa-arrow-up-right-from-square"></i>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="wft-card" data-reveal style="--d:.30s">
+                            <div class="wft-thumb">
+                                <img src="Media/wft-04.svg" alt="Placeholder preview of a client landing page" loading="lazy" decoding="async">
+                                <span class="wft-badge"><i class="fas fa-lock"></i> NDA</span>
+                                <span class="wft-scrim" aria-hidden="true"></span>
+                                <div class="wft-hover">
+                                    <p class="wft-kind">Landing Page · 2026</p>
+                                    <h4 class="wft-name">Brand Landing Page</h4>
+                                </div>
+                            </div>
+                            <div class="wft-foot">
+                                <span class="wft-index">04</span>
+                                <button type="button" class="wft-link"
+                                        onclick="openProjectModal('Brand Landing Page', 'Media/wft-04.svg', 'A client brand landing page designed at WeFrameTech. Covered by an NDA, so the preview is a placeholder — the full case study is available on request.')">
+                                    Details <i class="fas fa-arrow-up-right-from-square"></i>
+                                </button>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -249,23 +348,23 @@
                     <div class="about-skills" data-reveal style="--d:.22s">
                         <div class="skills-grid">
                             <div class="skill-item">
-                                <img src="Media/figms.png" alt="Figma" class="skill-icon" loading="lazy">
+                                <img src="Media/figms.png" alt="Figma" class="skill-icon" loading="lazy" decoding="async">
                                 <span>Figma</span>
                             </div>
                             <div class="skill-item">
-                                <img src="Media/photoshop-40.svg" alt="Photoshop" class="skill-icon" loading="lazy">
+                                <img src="Media/photoshop-40.svg" alt="Photoshop" class="skill-icon" loading="lazy" decoding="async">
                                 <span>Photoshop</span>
                             </div>
                             <div class="skill-item">
-                                <img src="Media/illustrator.svg" alt="Illustrator" class="skill-icon" loading="lazy">
+                                <img src="Media/illustrator.svg" alt="Illustrator" class="skill-icon" loading="lazy" decoding="async">
                                 <span>Illustrator</span>
                             </div>
                             <div class="skill-item">
-                                <img src="Media/Canva.png" alt="Canva" class="skill-icon" loading="lazy">
+                                <img src="Media/Canva.png" alt="Canva" class="skill-icon" loading="lazy" decoding="async">
                                 <span>Canva</span>
                             </div>
                             <div class="skill-item">
-                                <img src="Media/blender.png" alt="Blender" class="skill-icon" loading="lazy">
+                                <img src="Media/blender.png" alt="Blender" class="skill-icon" loading="lazy" decoding="async">
                                 <span>Blender</span>
                             </div>
                         </div>
@@ -292,7 +391,7 @@
                     <article class="project-card" data-category="ui-ux" data-reveal>
                         <div class="project-media">
                             <div class="media-tilt">
-                                <img src="Media/Final_2-web.jpg" alt="UI Redesign of applications" loading="lazy">
+                                <img src="Media/Final_2-web.jpg" alt="UI Redesign of applications" loading="lazy" decoding="async">
                             </div>
                             <div class="project-overlay">
                                 <button class="view-btn" onclick="openProjectModal('UI Redesign of Applications', 'Media/Final_2-web.jpg', 'Redesigning applications as per trending styles')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
@@ -308,7 +407,7 @@
                     <article class="project-card" data-category="ui-ux" data-reveal>
                         <div class="project-media">
                             <div class="media-tilt">
-                                <img src="Media/Frame 13-web.jpg" alt="Neumorphic style design" loading="lazy">
+                                <img src="Media/Frame 13-web.jpg" alt="Neumorphic style design" loading="lazy" decoding="async">
                             </div>
                             <div class="project-overlay">
                                 <button class="view-btn" onclick="openProjectModal('Neumorphic Style Design', 'Media/Frame 13-web.jpg', 'Use of the Neumorphic Style Design for visualizing light and shadow to create a 3D looking design')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
@@ -324,7 +423,7 @@
                     <article class="project-card" data-category="ui-ux" data-reveal>
                         <div class="project-media">
                             <div class="media-tilt">
-                                <img src="Media/Project-web.jpg" alt="Attendance app redesign" loading="lazy">
+                                <img src="Media/Project-web.jpg" alt="Attendance app redesign" loading="lazy" decoding="async">
                             </div>
                             <div class="project-overlay">
                                 <button class="view-btn" onclick="openProjectModal('Redesign Of Attendance App', 'Media/Project-web.jpg', 'The project is about redesigning an attendance app using Figma with modern UI principles')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
@@ -341,7 +440,7 @@
                     <article class="project-card" data-category="3d" data-reveal>
                         <div class="project-media">
                             <div class="media-tilt">
-                                <img src="Media/Train 4-web.jpg" alt="3D model of Mumbai local train" loading="lazy">
+                                <img src="Media/Train 4-web.jpg" alt="3D model of Mumbai local train" loading="lazy" decoding="async">
                             </div>
                             <div class="project-overlay">
                                 <button class="view-btn" onclick="openProjectModal('3D Modeling - Mumbai Local Train', 'Media/Train 4-web.jpg', 'By observing the structure and clicking many photos for reference, this 3D model of train was made using Blender')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
@@ -357,7 +456,7 @@
                     <article class="project-card" data-category="3d" data-reveal>
                         <div class="project-media">
                             <div class="media-tilt">
-                                <img src="Media/Mini Home-web.png" alt="3D miniature house model" loading="lazy">
+                                <img src="Media/Mini Home-web.png" alt="3D miniature house model" loading="lazy" decoding="async">
                             </div>
                             <div class="project-overlay">
                                 <button class="view-btn" onclick="openProjectModal('3D Modeling - Miniature House', 'Media/Mini Home-web.png', 'Using Blender 3D I created a miniature model of a simple house to show minimalist design principles')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
@@ -374,7 +473,7 @@
                     <article class="project-card" data-category="graphic" data-reveal>
                         <div class="project-media">
                             <div class="media-tilt">
-                                <img src="Media/logoAi-web.png" alt="Bharat Socials logo design" loading="lazy">
+                                <img src="Media/logoAi-web.png" alt="Bharat Socials logo design" loading="lazy" decoding="async">
                             </div>
                             <div class="project-overlay">
                                 <button class="view-btn" onclick="openProjectModal('Logo Design - Bharat Socials', 'Media/logoAi-web.png', 'Logo design for an application named Bharat Socials using Adobe Illustrator and Photoshop')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
@@ -390,7 +489,7 @@
                     <article class="project-card" data-category="graphic" data-reveal>
                         <div class="project-media">
                             <div class="media-tilt">
-                                <img src="Media/ASM-web.png" alt="Vector portrait illustration" loading="lazy">
+                                <img src="Media/ASM-web.png" alt="Vector portrait illustration" loading="lazy" decoding="async">
                             </div>
                             <div class="project-overlay">
                                 <button class="view-btn" onclick="openProjectModal('Vector Portrait Illustration', 'Media/ASM-web.png', 'Minimalistic vector portrait created using Adobe Illustrator, featuring bold line art and a vibrant yellow abstract background')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
@@ -406,7 +505,7 @@
                     <article class="project-card" data-category="graphic" data-reveal>
                         <div class="project-media">
                             <div class="media-tilt">
-                                <img src="Media/Love-web.png" alt="Sunset pier illustration" loading="lazy">
+                                <img src="Media/Love-web.png" alt="Sunset pier illustration" loading="lazy" decoding="async">
                             </div>
                             <div class="project-overlay">
                                 <button class="view-btn" onclick="openProjectModal('Sunset Pier Illustration', 'Media/Love-web.png', 'A vector-based sunset landscape illustration created using Adobe Illustrator, featuring silhouettes, reflections, and a warm gradient sky.')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
@@ -423,7 +522,7 @@
                     <article class="project-card" data-category="developer" data-reveal>
                         <div class="project-media">
                             <div class="media-tilt">
-                                <img src="Media/BHTSOC-web.jpeg" alt="Bharat Socials app design and development" loading="lazy">
+                                <img src="Media/BHTSOC-web.jpeg" alt="Bharat Socials app design and development" loading="lazy" decoding="async">
                             </div>
                             <div class="project-overlay">
                                 <button class="view-btn" onclick="openProjectModal('Bharat Socials – App Design & Development', 'Media/BHTSOC-web.jpeg', 'A fully designed and developed mobile application for managing NSS, NGOs, and University events with volunteer tracking, event registration, and attendance monitoring.')">View Project <i class="fas fa-arrow-up-right-from-square"></i></button>
@@ -445,7 +544,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeProjectModal()" aria-label="Close"><i class="fas fa-xmark"></i></button>
             <h2 id="modal-title"></h2>
-            <img id="modal-image" src="" alt="Project image">
+            <img id="modal-image" src="" alt="Project image" decoding="async">
             <p id="modal-description"></p>
         </div>
     </div>
@@ -482,7 +581,7 @@
 
             <div class="footer-bottom">
                 <p>© <span id="year">2025</span> Asmit Vishwakarma. All rights reserved.</p>
-                <a href="https://drive.google.com/file/d/1Z_zxIUs4vv32OM-PQig0u24Dq4L9o05q/view?usp=sharing"
+                <a href="https://drive.google.com/file/d/1IWvd51mjmcJmk07wssJ0h92zq18LiNz2/view?usp=sharing"
                    target="_blank" rel="noopener" class="resume-link">Download Resume <i class="fas fa-download"></i></a>
             </div>
         </div>

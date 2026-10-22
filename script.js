@@ -25,6 +25,7 @@
         initFiltering();
         initRoleRows();
         initModal();
+        initWftCards();
         initCounters();
         initRotor();
         if (!reduced) {
@@ -74,7 +75,7 @@
                 // leaving viewport -> fade/blur back down
                 entry.target.classList.toggle('revealed', entry.isIntersecting);
             });
-        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         els.forEach(el => io.observe(el));
     }
 
@@ -86,18 +87,26 @@
         let lastY = window.scrollY;
         let vel = 0;
         let navScrolled = false;
+        let lastSv = '';
 
         function frame() {
             const y = window.scrollY;
             const dy = y - lastY;
             lastY = y;
 
-            // tilt target from scroll velocity, clamped to ±4deg
-            const target = Math.max(-4, Math.min(4, dy * 0.35));
-            vel += (target - vel) * 0.08;
+            // tilt target from scroll velocity, clamped to ±3deg
+            const target = Math.max(-3, Math.min(3, dy * 0.3));
+            vel += (target - vel) * 0.09;
             if (Math.abs(vel) < 0.002) vel = 0;
             motionState.vel = vel;
-            root.style.setProperty('--sv', vel.toFixed(3) + 'deg');
+
+            // only touch the custom property when it actually changes,
+            // otherwise the whole document restyles on every frame
+            const sv = vel.toFixed(2) + 'deg';
+            if (sv !== lastSv) {
+                root.style.setProperty('--sv', sv);
+                lastSv = sv;
+            }
 
             // progress bar
             if (progress) {
@@ -119,16 +128,28 @@
         requestAnimationFrame(frame);
     }
 
-    /* ---------------- Magnetic buttons ---------------- */
+    /* ---------------- Magnetic buttons ----------------
+       The offset is published as --mx / --my so the CSS transform
+       stays composable with :hover and :active (no inline overrides). */
     function initMagnetic() {
         document.querySelectorAll('.btn-primary, .btn-ghost, .nav-resume').forEach(btn => {
+            let rect = null;
+
+            const measure = () => { rect = btn.getBoundingClientRect(); };
+
+            btn.addEventListener('pointerenter', measure);
             btn.addEventListener('pointermove', e => {
-                const r = btn.getBoundingClientRect();
-                const x = (e.clientX - r.left - r.width / 2) * 0.18;
-                const y = (e.clientY - r.top - r.height / 2) * 0.3;
-                btn.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+                if (!rect) measure();
+                const x = (e.clientX - rect.left - rect.width / 2) * 0.18;
+                const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+                btn.style.setProperty('--mx', x.toFixed(1) + 'px');
+                btn.style.setProperty('--my', y.toFixed(1) + 'px');
             });
-            btn.addEventListener('pointerleave', () => btn.style.removeProperty('transform'));
+            btn.addEventListener('pointerleave', () => {
+                rect = null;
+                btn.style.removeProperty('--mx');
+                btn.style.removeProperty('--my');
+            });
         });
     }
 
@@ -139,13 +160,27 @@
             .map(id => document.getElementById(id))
             .filter(Boolean);
 
+        function mark(active) {
+            links.forEach(l => {
+                const on = l === active;
+                l.classList.toggle('is-active', on);
+                if (on) l.setAttribute('aria-current', 'true');
+                else l.removeAttribute('aria-current');
+            });
+        }
+
+        // instant feedback on click — no waiting for the scroll to settle
+        links.forEach(l => {
+            l.addEventListener('click', () => mark(l));
+        });
+
         if (!('IntersectionObserver' in window) || !sections.length) return;
 
         const io = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
                 const id = '#' + entry.target.id;
-                links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === id));
+                mark([...links].find(l => l.getAttribute('href') === id));
             });
         }, { rootMargin: '-40% 0px -55% 0px' });
 
@@ -222,6 +257,18 @@
         document.body.style.overflow = '';
     }
 
+    /* ---------------- WeFrameTech cards: whole card is a hit target ------
+       The visible "Details" button stays the keyboard-accessible control. */
+    function initWftCards() {
+        document.querySelectorAll('.wft-card').forEach(card => {
+            card.addEventListener('click', e => {
+                if (e.target.closest('.wft-link')) return;   // button handles itself
+                const link = card.querySelector('.wft-link');
+                if (link) link.click();
+            });
+        });
+    }
+
     /* ---------------- Animated counters ---------------- */
     function initCounters() {
         const nums = document.querySelectorAll('.stat-num[data-count]');
@@ -255,20 +302,40 @@
         nums.forEach(n => io.observe(n));
     }
 
-    /* ---------------- Hero rotor word cycle ---------------- */
+    /* ---------------- Hero rotor word cycle ----------------
+       Only runs on wide screens — the mobile hero shows a static
+       role list, so the cycling word would be invisible noise. */
     function initRotor() {
         const rotor = document.getElementById('rotor');
         if (!rotor || reduced) return;
+
         const words = ['UI/UX Designer', 'Graphic Designer', 'Developer', '3D Artist'];
+        const mq = window.matchMedia('(min-width: 769px)');
         let i = 0;
-        setInterval(() => {
+        let timer = null;
+
+        function cycle() {
             rotor.classList.add('rotor-out');
             setTimeout(() => {
                 i = (i + 1) % words.length;
                 rotor.textContent = words[i];
                 rotor.classList.remove('rotor-out');
             }, 320);
-        }, 2400);
+        }
+
+        function sync() {
+            if (mq.matches) {
+                if (!timer) timer = setInterval(cycle, 2400);
+            } else if (timer) {
+                clearInterval(timer);
+                timer = null;
+                rotor.classList.remove('rotor-out');
+            }
+        }
+
+        if (mq.addEventListener) mq.addEventListener('change', sync);
+        else if (mq.addListener) mq.addListener(sync);
+        sync();
     }
 
     /* ---------------- Footer year ---------------- */
@@ -368,12 +435,12 @@
                 const ny = Math.max(-1, Math.min(1, (my - (r.top + r.height / 2)) / r.height));
                 // face towards the cursor: positive rotateX looks up,
                 // negative rotateY turns right
-                trx = (-ny * 10);
-                try_ = (-nx * 12);
+                trx = (-ny * 8);
+                try_ = (-nx * 10);
             }
 
-            rx += (trx - rx) * 0.07;
-            ry += (try_ - ry) * 0.07;
+            rx += (trx - rx) * 0.08;
+            ry += (try_ - ry) * 0.08;
 
             el.style.transform =
                 'perspective(1100px) rotateX(' + (rx + motionState.vel).toFixed(3) + 'deg) rotateY(' + ry.toFixed(3) + 'deg)';
